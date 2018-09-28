@@ -1,18 +1,18 @@
 import yaml
 
 TREE = yaml.load("""
-say: "What is the purpose of your visit? (options: butts, dicks, poops)"
+say: "Welcome to the Cult Institute. Do you feel a vague sense of dread?"
 answers:
-  butts:
+  yes:
     say: You need a Standard Visitor Visa
-  dicks:
+  no:
     say: How long are you going to stay in the UK? up to 6 months; more than 6 months
     answers:
       up to 6 months:
         say: You can apply for a Short-term Study Visa
       more than 6 months:
         say: You need a Study Visa (Tier 4)
-  poops:
+  sort of?:
     say: How long are you going to stay in the UK? up to 6 months; more than 6 months
     answers:
       up to 6 months:
@@ -37,12 +37,4 @@ answers:
                 say: Tier 2 (Minister of Religion)
               '4':
                 say: Tier 2 (Sportsperson)
-  medical treatment:
-    say: You need a Standard Visitor Visa
-  join family/get married:
-    say: You need a Family of a settled person visa if your family/partner are settled in the UK or a 'dependant' visa of their visa category if they are working or studying
-  visiting a child:
-    say: You need a Parent visa if you're visiting for over 6 months and a Standard Visitor visa if your visit is  for less than 6 months
-  diplomatic or government visit:
-    say: You can apply for exempt vignette (exempt from immigration control)
 """)
