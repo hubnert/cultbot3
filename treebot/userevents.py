@@ -1,3 +1,8 @@
+from google.appengine.ext import ndb
+
+import logging
+
+
 class UserEvent(ndb.Model):
     user = ndb.StringProperty()
     direction = ndb.StringProperty()

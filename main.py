@@ -1,3 +1,22 @@
+import json
+
+import logging
+
+import sys
+from google.appengine.api import urlfetch
+import webapp2
+
+from treebot.bot import TreeBot
+from treebot.tree import TREE
+from treebot.userevents import UserEventsDao
+
+logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+
+
+VERIFY_TOKEN = "CREATE_YOUR_OWN_RANDOM_VERIFY_TOKEN"
+ACCESS_TOKEN = "YOUR_SECRET_ACCESS_TOKEN"
+
+
 class MainPage(webapp2.RequestHandler):
     def __init__(self, request=None, response=None):
         super(MainPage, self).__init__(request, response)
@@ -14,6 +33,7 @@ class MainPage(webapp2.RequestHandler):
                 self.response.write(challenge)
         else:
             self.response.write("Ok")
+
     def post(self):
         data = json.loads(self.request.body)
         logging.info("Got data: %r", data)
@@ -37,7 +57,9 @@ class MainPage(webapp2.RequestHandler):
                         payload = messaging_event['postback']['payload']
                         self.bot.handle(sender_id, payload)
                         logging.info("Post-back")
-	def send_message(recipient_id, message_text, possible_answers):
+
+
+def send_message(recipient_id, message_text, possible_answers):
     logging.info("Sending message to %r: %s", recipient_id, message_text)
     headers = {
         "Content-Type": "application/json"
@@ -81,6 +103,7 @@ def get_postback_buttons_message(message_text, possible_answers):
             }
         }
     return None
+
 
 app = webapp2.WSGIApplication([
     ('/', MainPage),

@@ -1,3 +1,6 @@
+import yaml
+
+TREE = yaml.load("""
 say: "What is the purpose of your visit? (options: travel, study, business/work, medical treatment, join family/get married, visit child at school, diplomatic/government visit)"
 answers:
   travel:
@@ -42,3 +45,4 @@ answers:
     say: You need a Parent visa if you're visiting for over 6 months and a Standard Visitor visa if your visit is  for less than 6 months
   diplomatic or government visit:
     say: You can apply for exempt vignette (exempt from immigration control)
+""")

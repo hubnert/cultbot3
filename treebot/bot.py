@@ -1,3 +1,19 @@
+import logging
+from sys import maxint
+
+DEFAULT = "Sorry, I didn't understand, shall we start again?"
+DEFAULT_POSSIBLE_ANSWERS = ["yes", "no"]
+
+
+def get_content_match(content, tree):
+    matches = []
+    for key in sorted(tree):
+        if content.lower() in key.lower():
+            matches.append(key)
+    if len(matches) == 1:
+        return matches[0]
+
+
 class TreeBot(object):
     def __init__(self, send_callback, users_dao, tree):
         self.send_callback = send_callback
@@ -48,11 +64,22 @@ class TreeBot(object):
 
         self.send_callback(user, response, possible_answers)
         self.users_dao.add_user_event(user, 'sent', response)
-        
-        def get_content_match(content, tree):
-    matches = []
-    for key in sorted(tree):
-        if content.lower() in key.lower():
-            matches.append(key)
-    if len(matches) == 1:
-        return matches[0]
+
+
+def verify_tree(tree):
+    if 'say' in tree:
+        if 'answers' in tree:
+            return verify_answers(tree['answers'])
+    return None
+
+
+def verify_answers(answers):
+    problem = None
+    for answer, tree in answers.items():
+        if not isinstance(answer, basestring):
+            return "Answer is not a string: " + repr(answer)
+        problem = verify_tree(tree)
+        if problem:
+            break
+    return problem
+
