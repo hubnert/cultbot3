@@ -3,9 +3,9 @@ import yaml
 TREE = yaml.load("""
 say: "Welcome to the Cult Institute. Do you feel a vague sense of dread?"
 answers:
-  yes:
+  i think so:
     say: You need a Standard Visitor Visa
-  no:
+  not really?:
     say: How long are you going to stay in the UK? up to 6 months; more than 6 months
     answers:
       up to 6 months:
