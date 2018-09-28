@@ -1,18 +1,18 @@
 import yaml
 
 TREE = yaml.load("""
-say: "What is the purpose of your visit? (options: travel, study, business/work, medical treatment, join family/get married, visit child at school, diplomatic/government visit)"
+say: "What is the purpose of your visit? (options: butts, dicks, poops)"
 answers:
-  travel:
+  butts:
     say: You need a Standard Visitor Visa
-  study:
+  dicks:
     say: How long are you going to stay in the UK? up to 6 months; more than 6 months
     answers:
       up to 6 months:
         say: You can apply for a Short-term Study Visa
       more than 6 months:
         say: You need a Study Visa (Tier 4)
-  business/work:
+  poops:
     say: How long are you going to stay in the UK? up to 6 months; more than 6 months
     answers:
       up to 6 months:
