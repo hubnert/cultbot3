@@ -4,7 +4,7 @@ TREE = yaml.load("""
 say: "Welcome to the Cult Institute. Do you feel a vague sense of dread?"
 answers:
   i think so:
-    say: You need a Standard Visitor Visa
+    say: https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwihwrD4xOndAhXIwFQKHcSYCWAQjRx6BAgBEAU&url=https%3A%2F%2Fgiphy.com%2Fgifs%2Fhomer-simpson-the-simpsons-bush-4pMX5rJ4PYAEM&psig=AOvVaw3NZ4AmnqWKLNbXhk_Amm5t&ust=1538630908828077
   not really?:
     say: How long are you going to stay in the UK? up to 6 months; more than 6 months
     answers:
