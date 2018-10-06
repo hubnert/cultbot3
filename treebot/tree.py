@@ -1,7 +1,7 @@
 import yaml
 
 TREE = yaml.load("""
-say: "Hello there, and welcome to Cult.Institute. Today I’ll be your psychical advisor. By the end of our session, I’ll have evaluated your current levels of dread and woe, and I’ll be able to recommend what you should do next. Let’s begin. How are you?"
+say: "Welcome to the Cult Institute. Do you feel a vague sense of dread?"
 answers:
   i think so:
     say: https://media.giphy.com/media/4pMX5rJ4PYAEM/giphy.gif
